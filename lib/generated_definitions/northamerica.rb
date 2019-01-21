@@ -7,7 +7,7 @@ module Holidays
   # All the definitions are available at https://github.com/holidays/holidays
   module NORTHAMERICA # :nodoc:
     def self.defined_regions
-      [:ca, :ca_qc, :ca_ab, :ca_sk, :ca_on, :ca_bc, :ca_nb, :ca_mb, :ca_ns, :ca_pe, :ca_nl, :ca_nt, :ca_nu, :ca_yt, :mx, :mx_pue, :us_fl, :us_la, :us, :us_ct, :us_de, :us_gu, :us_hi, :us_in, :us_ky, :us_nj, :us_nc, :us_nd, :us_pr, :us_tn, :us_ms, :us_id, :us_ar, :us_tx, :us_dc, :us_md, :us_va, :us_il, :us_vt, :us_ak, :us_ca, :us_me, :us_ma, :us_al, :us_ga, :us_ne, :us_mo, :us_sc, :us_wv, :us_vi, :us_ut, :us_ri, :us_az, :us_co, :us_mt, :us_nm, :us_ny, :us_oh, :us_pa, :us_mi, :us_mn, :us_nv, :us_or, :us_sd, :us_wa, :us_wi, :us_wy, :us_ia, :us_ks, :us_nh, :us_ok]
+      [:ca, :ca_qc, :ca_ab, :ca_sk, :ca_on, :ca_bc, :ca_nb, :ca_mb, :ca_ns, :ca_pe, :ca_nl, :ca_nt, :ca_nu, :ca_yt, :mx, :mx_pue, :us_fl, :us_la, :us, :us_ct, :us_de, :us_gu, :us_hi, :us_in, :us_ky, :us_nj, :us_nc, :us_nd, :us_pr, :us_tn, :us_ms, :us_id, :us_ar, :us_tx, :us_dc, :us_md, :us_va, :us_il, :us_vt, :us_ak, :us_ca, :us_me, :us_ma, :us_al, :us_ga, :us_ne, :us_mo, :us_sc, :us_wv, :us_vi, :us_ut, :us_ri, :us_az, :us_co, :us_mt, :us_nm, :us_ny, :us_oh, :us_pa, :us_mi, :us_mn, :us_nv, :us_or, :us_sd, :us_wa, :us_wi, :us_wy, :us_ok]
     end
 
     def self.holidays_by_month
@@ -28,7 +28,7 @@ module Holidays
             {:wday => 1, :week => 3, :name => "Martin Luther King's and Robert E. Lee's Birthdays", :regions => [:us_ms]},
             {:wday => 1, :week => 3, :name => "Idaho Human Rights Day", :regions => [:us_id]},
             {:wday => 1, :week => 3, :name => "Civil Rights Day", :regions => [:us_ar]},
-            {:wday => 1, :week => 3, :name => "Martin Luther King, Jr. Day", :regions => [:us]},
+            {:wday => 1, :week => 3, :type => :informal, :name => "Martin Luther King, Jr. Day", :regions => [:us]},
             {:function => "us_inauguration_day(year)", :function_arguments => [:year], :name => "Inauguration Day", :regions => [:us_tx, :us_dc, :us_la, :us_md, :us_va]},
             {:function => "lee_jackson_day(year, month)", :function_arguments => [:year, :month], :name => "Lee-Jackson Day", :regions => [:us_va]},
             {:mday => 19, :name => "Confederate Heroes Day", :regions => [:us_tx]}],
@@ -42,7 +42,7 @@ module Holidays
             {:wday => 1, :week => 3,  :year_ranges => [{:after => 2015}],:name => "Nova Scotia Heritage Day", :regions => [:ca_ns]},
             {:wday => 1, :week => 3, :name => "Islander Day", :regions => [:ca_pe]},
             {:wday => 1, :week => 1, :name => "Día de la Constitución", :regions => [:mx]},
-            {:wday => 1, :week => 3, :name => "Presidents' Day", :regions => [:us]},
+            {:wday => 1, :week => 3, :type => :informal, :name => "Presidents' Day", :regions => [:us]},
             {:mday => 2, :type => :informal, :name => "Groundhog Day", :regions => [:us, :ca]},
             {:mday => 14, :type => :informal, :name => "Valentine's Day", :regions => [:us, :ca]}],
       3 => [{:mday => 23, :type => :informal, :name => "St. George's Day", :regions => [:ca_nl]},
@@ -114,14 +114,14 @@ module Holidays
             {:mday => 2, :type => :informal, :name => "Los Fieles Difuntos", :regions => [:mx]},
             {:wday => 1, :week => 3, :name => "Día de la Revolución", :regions => [:mx]},
             {:function => "election_day(year)", :function_arguments => [:year], :name => "Election Day", :regions => [:us_de, :us_hi, :us_il, :us_in, :us_mt, :us_nj, :us_ny, :us_pa, :us_ri]},
-            {:mday => 11, :observed => "to_weekday_if_weekend(date)", :observed_arguments => [:date], :name => "Veterans Day", :regions => [:us]},
+            {:mday => 11, :observed => "to_weekday_if_weekend(date)", :observed_arguments => [:date], :type => :informal, :name => "Veterans Day", :regions => [:us]},
             {:wday => 4, :week => 4, :name => "Thanksgiving", :regions => [:us]},
             {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "Family Day", :regions => [:us_nv]},
             {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "State Holiday", :regions => [:us_ga]},
             {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "Presidents' Day", :regions => [:us_nm]},
             {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "Lincoln's Birthday", :regions => [:us_in]},
             {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "American Indian Heritage Day", :regions => [:us_md]},
-            {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "Day after Thanksgiving (Black Friday)", :regions => [:us_ca, :us_de, :us_fl, :us_ia, :us_il, :us_ks, :us_ky, :us_me, :us_mi, :us_mn, :us_ms, :us_ne, :us_nh, :us_nc, :us_pa, :us_sc, :us_ok, :us_tn, :us_tx, :us_va, :us_wa, :us_wv]}],
+            {:function => "day_after_thanksgiving(year)", :function_arguments => [:year], :name => "Day after Thanksgiving (Black Friday)", :regions => [:us]}],
       12 => [{:mday => 25, :observed => "to_monday_if_weekend(date)", :observed_arguments => [:date], :name => "Christmas Day", :regions => [:ca]},
             {:mday => 26, :observed => "to_weekday_if_boxing_weekend(date)", :observed_arguments => [:date], :name => "Boxing Day", :regions => [:ca_on]},
             {:mday => 26, :observed => "to_weekday_if_boxing_weekend(date)", :observed_arguments => [:date], :type => :informal, :name => "Boxing Day", :regions => [:ca_ab, :ca_bc, :ca_mb, :ca_nb, :ca_nl, :ca_nt, :ca_ns, :ca_nu, :ca_pe, :ca_sk, :ca_yt]},
@@ -129,11 +129,11 @@ module Holidays
             {:mday => 24, :type => :informal, :name => "Nochebuena", :regions => [:mx]},
             {:mday => 25, :name => "Navidad", :regions => [:mx]},
             {:mday => 28, :name => "Los Santos Inocentes", :regions => [:mx]},
-            {:mday => 24, :name => "Christmas Eve", :regions => [:us_ar, :us_mi, :us_nc, :us_sc, :us_tx, :us_wi]},
+            {:mday => 24, :name => "Christmas Eve", :regions => [:us]},
             {:mday => 24, :function => "christmas_eve_holiday(date)", :function_arguments => [:date], :name => "Christmas Eve (Holiday)", :regions => [:us_mi, :us_sc, :us_va]},
             {:mday => 25, :observed => "to_monday_if_weekend(date)", :observed_arguments => [:date], :name => "Christmas Day", :regions => [:us]},
             {:mday => 26, :name => "Day after Christmas", :regions => [:us_ar, :us_nc, :us_ok, :us_sc, :us_tn, :us_tx]},
-            {:mday => 31, :name => "New Year's Eve", :regions => [:us_mi, :us_wi]}],
+            {:mday => 31, :name => "New Year's Eve", :regions => [:us]}],
       4 => [{:mday => 30, :type => :informal, :name => "Día del Niño", :regions => [:mx]},
             {:mday => 16, :observed => "to_weekday_if_weekend(date)", :observed_arguments => [:date], :name => "Emancipation Day", :regions => [:us_dc, :us_ca]},
             {:wday => 1, :week => 3, :name => "Patriots' Day", :regions => [:us_me, :us_ma]},
